@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ArchSandbox</string>
+
+    <string name="hello">Hello</string>
+    <string name="splash_title">Arch Sandbox</string>
+    <string name="splash_subtitle">Bem vindo ao blueprint da arquitetura sandbox</string>
+    <string name="todo_list">ToDo List</string>
+
+</resources>
