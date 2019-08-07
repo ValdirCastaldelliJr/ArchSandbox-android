@@ -9,11 +9,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.castaldelli.archsandbox.R
-import com.castaldelli.archsandbox.core.CoreViewActivity
-import com.castaldelli.archsandbox.databinding.SplashActivityBinding
+import com.castaldelli.archsandbox.core.CoreActivity
+import com.castaldelli.archsandbox.databinding.ActivitySplashBinding
 import com.castaldelli.archsandbox.viewmodel.SplashViewModel
 
-class SplashActivity : CoreViewActivity() {
+class SplashActivity : CoreActivity() {
 
     private lateinit var viewModel: SplashViewModel
 
@@ -23,13 +23,13 @@ class SplashActivity : CoreViewActivity() {
         viewModel = ViewModelProviders.of(this).get(SplashViewModel::class.java)
 
 
-        DataBindingUtil.setContentView<SplashActivityBinding>(this@SplashActivity, R.layout.splash_activity).apply {
+        DataBindingUtil.setContentView<ActivitySplashBinding>(this@SplashActivity, R.layout.activity_splash).apply {
             this.lifecycleOwner = this@SplashActivity
             this.vm = viewModel
         }
 
         viewModel.onResponse.observe(this, Observer {
-            startActivity(Intent(this, MainActivity::class.java).apply {
+            startActivity(Intent(this, TodoListActivity::class.java).apply {
                 addFlags(FLAG_ACTIVITY_NEW_TASK)
                 addFlags(FLAG_ACTIVITY_CLEAR_TASK)
             })

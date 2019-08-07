@@ -13,26 +13,26 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.castaldelli.archsandbox.R
 
 
-import com.castaldelli.archsandbox.core.CoreViewActivity
+import com.castaldelli.archsandbox.core.CoreActivity
 import com.castaldelli.archsandbox.databinding.MainActivityBinding
 import com.castaldelli.archsandbox.repository.database.entity.Task
 import com.castaldelli.archsandbox.view.adapter.TaskAdapter
-import com.castaldelli.archsandbox.viewmodel.MainViewModel
+import com.castaldelli.archsandbox.viewmodel.TodoListViewModel
 import kotlinx.android.synthetic.main.main_activity.*
 
 
-class MainActivity : CoreViewActivity() {
+class TodoListActivity : CoreActivity() {
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: TodoListViewModel
     private lateinit var taskList: List<Task>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(TodoListViewModel::class.java)
 
-        DataBindingUtil.setContentView<MainActivityBinding>(this@MainActivity, R.layout.main_activity).apply {
-            this.lifecycleOwner = this@MainActivity
+        DataBindingUtil.setContentView<MainActivityBinding>(this@TodoListActivity, R.layout.main_activity).apply {
+            this.lifecycleOwner = this@TodoListActivity
             this.vm = viewModel
         }
 

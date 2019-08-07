@@ -7,7 +7,7 @@ import com.castaldelli.archsandbox.core.CoreViewModel
 import com.castaldelli.archsandbox.repository.database.dao.TaskDAO
 import com.castaldelli.archsandbox.repository.database.entity.Task
 
-class MainViewModel : CoreViewModel() {
+class TodoListViewModel : CoreViewModel() {
 
     private val dao : TaskDAO by lazy { App.db.taskDAO() }
 

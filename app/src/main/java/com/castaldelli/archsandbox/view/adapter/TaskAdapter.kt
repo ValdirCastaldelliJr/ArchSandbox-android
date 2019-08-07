@@ -10,17 +10,17 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.castaldelli.archsandbox.R
 import com.castaldelli.archsandbox.repository.database.entity.Task
-import com.castaldelli.archsandbox.view.MainActivity
+import com.castaldelli.archsandbox.view.TodoListActivity
 import kotlinx.android.synthetic.main.task_adapter.view.*
 
 class TaskAdapter(private val lista : List<Task>) : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
-    private lateinit var activity: MainActivity
+    private lateinit var activity: TodoListActivity
 
     override fun getItemCount(): Int = lista.size
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int) : ViewHolder {
-        if (parent.context is MainActivity) {
-            activity = parent.context as MainActivity
+        if (parent.context is TodoListActivity) {
+            activity = parent.context as TodoListActivity
         }
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.task_adapter, parent, false))
 
@@ -78,7 +78,7 @@ class TaskAdapter(private val lista : List<Task>) : RecyclerView.Adapter<TaskAda
 
     private fun selectItem(vh: ViewHolder) {
         vh.v.txt_task.setTextColor(ContextCompat.getColor(activity, R.color.white))
-        vh.v.container.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))
+        vh.v.container.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimaryDark))
     }
 
     private fun cleanSelection(vh: ViewHolder) {
