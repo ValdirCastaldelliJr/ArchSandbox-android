@@ -14,11 +14,11 @@ import com.castaldelli.archsandbox.R
 
 
 import com.castaldelli.archsandbox.core.CoreActivity
-import com.castaldelli.archsandbox.databinding.MainActivityBinding
+import com.castaldelli.archsandbox.databinding.ActivityTodoBinding
 import com.castaldelli.archsandbox.repository.database.entity.Task
 import com.castaldelli.archsandbox.view.adapter.TaskAdapter
 import com.castaldelli.archsandbox.viewmodel.TodoListViewModel
-import kotlinx.android.synthetic.main.main_activity.*
+import kotlinx.android.synthetic.main.activity_todo.*
 
 
 class TodoListActivity : CoreActivity() {
@@ -31,7 +31,7 @@ class TodoListActivity : CoreActivity() {
 
         viewModel = ViewModelProviders.of(this).get(TodoListViewModel::class.java)
 
-        DataBindingUtil.setContentView<MainActivityBinding>(this@TodoListActivity, R.layout.main_activity).apply {
+        DataBindingUtil.setContentView<ActivityTodoBinding>(this@TodoListActivity, R.layout.activity_todo).apply {
             this.lifecycleOwner = this@TodoListActivity
             this.vm = viewModel
         }
