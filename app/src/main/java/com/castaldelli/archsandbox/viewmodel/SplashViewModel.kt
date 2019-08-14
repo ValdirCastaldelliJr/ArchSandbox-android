@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.castaldelli.archsandbox.core.CoreViewModel
 import com.castaldelli.archsandbox.model.SomeModel
+import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -21,7 +22,7 @@ class SplashViewModel: CoreViewModel() {
     private val runnable = Runnable { loop() }
 
     init {
-        count = 0
+        count = 3//= 0
         handler.postDelayed(runnable, 1000) // FIXME: Remover. Só pra simular algum processamento de splash
     }
 
@@ -49,7 +50,7 @@ class SplashViewModel: CoreViewModel() {
             else ->  {
                 strike = 1
                 // Async //
-                GlobalScope.launch { getTheThingsDone() /* Sync */ }
+                GlobalScope.launch(Main) { getTheThingsDone() /* Sync */ }
             }
 
         }

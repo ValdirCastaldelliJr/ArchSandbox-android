@@ -10,8 +10,8 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.castaldelli.archsandbox.R
 import com.castaldelli.archsandbox.repository.database.entity.Task
-import com.castaldelli.archsandbox.view.TodoListActivity
-import kotlinx.android.synthetic.main.task_adapter.view.*
+import com.castaldelli.archsandbox.view.activity.TodoListActivity
+import kotlinx.android.synthetic.main.layout_adapter_single_task.view.*
 
 class TaskAdapter(private val lista : List<Task>) : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
@@ -22,7 +22,7 @@ class TaskAdapter(private val lista : List<Task>) : RecyclerView.Adapter<TaskAda
         if (parent.context is TodoListActivity) {
             activity = parent.context as TodoListActivity
         }
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.task_adapter, parent, false))
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.layout_adapter_single_task, parent, false))
 
     }
 

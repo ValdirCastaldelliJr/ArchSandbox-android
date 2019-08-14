@@ -1,4 +1,5 @@
-package com.castaldelli.archsandbox.view
+package com.castaldelli.archsandbox.view.activity
+
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -11,9 +12,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.castaldelli.archsandbox.R
-
-
-import com.castaldelli.archsandbox.core.CoreActivity
 import com.castaldelli.archsandbox.databinding.ActivityTodoBinding
 import com.castaldelli.archsandbox.repository.database.entity.Task
 import com.castaldelli.archsandbox.view.adapter.TaskAdapter
@@ -21,7 +19,7 @@ import com.castaldelli.archsandbox.viewmodel.TodoListViewModel
 import kotlinx.android.synthetic.main.activity_todo.*
 
 
-class TodoListActivity : CoreActivity() {
+class TodoListActivity : MenuActivity() {
 
     private lateinit var viewModel: TodoListViewModel
     private lateinit var taskList: List<Task>
@@ -30,11 +28,18 @@ class TodoListActivity : CoreActivity() {
         super.onCreate(savedInstanceState)
 
         viewModel = ViewModelProviders.of(this).get(TodoListViewModel::class.java)
+        
+        setContentView(R.layout.activity_todo)
+        DataBindingUtil.bind<ActivityTodoBinding>(viewToBind).apply {
+            this?.lifecycleOwner = this@TodoListActivity
+            this?.vm = viewModel
+        }
 
+        /*
         DataBindingUtil.setContentView<ActivityTodoBinding>(this@TodoListActivity, R.layout.activity_todo).apply {
             this.lifecycleOwner = this@TodoListActivity
             this.vm = viewModel
-        }
+        }*/
 
         viewModel.getAllTasks().observe(this, Observer {
             if (it != null && it.isNotEmpty()) {

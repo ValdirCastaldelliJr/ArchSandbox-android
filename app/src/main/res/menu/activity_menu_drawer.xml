@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+    <item android:title="@string/m_menu">
+        <menu>
+            <item   android:id="@+id/nav_todo"
+                    android:icon="@drawable/ic_menu_slideshow"
+                    android:title="@string/m_todo_list"
+                    android:enabled="true"
+            />
+            <item   android:id="@+id/nav_augmented"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="@string/m_augmented_reality"
+                    android:enabled="true"
+            />
+            <item   android:id="@+id/nav_barcode"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="@string/m_barcode_reader"
+                    android:enabled="false"
+            />
+            <item   android:id="@+id/nav_ocr"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="@string/m_ocr_reader"
+                    android:enabled="false"
+            />
+        </menu>
+    </item>
+</menu>

@@ -8,5 +8,6 @@
     <color name="cerulean">#0066cc</color>
     <color name="white">#ffffff</color>
     <color name="red">#EA3833</color>
+    <color name="text_disabled">#9D9FA2</color>
 
 </resources>
